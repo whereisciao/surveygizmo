@@ -28,7 +28,7 @@ describe Surveygizmo::API do
         should have_been_made
     end
     it "only returns surveys with a subtype of poll" do
-      @client.polls.each { |p| p._subtype.should == 'Poll' }
+      @client.polls.body[:data].each { |p| p[:_subtype].should == 'Poll' }
     end
   end
 

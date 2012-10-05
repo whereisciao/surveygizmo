@@ -1,5 +1,6 @@
 require 'surveygizmo/configurable'
 require 'faraday_middleware'
+require 'surveygizmo/core_ext/response'
 
 module Surveygizmo
   module Default
