@@ -24,7 +24,9 @@ describe Surveygizmo::Error do
     expect { request }.to raise_error Surveygizmo::Error
   end
  
-  it "has the correct code" 
+  it "has the correct code" do
+    expect { request }.to raise_error(Surveygizmo::Error) { |e| e.code.should == 103 }
+  end
  
   it "has the correct message" do
     expect { request }.to raise_error(Surveygizmo::Error) { |e| e.message.should == "Service currently unavailable" }
