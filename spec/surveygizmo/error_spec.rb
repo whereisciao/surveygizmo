@@ -1,5 +1,5 @@
 require 'helper'
-
+ 
 describe Surveygizmo::Error do
   subject { Surveygizmo::Client.new(:username => "maarten@moretea.nl", :password => "keyboardcat") }
   let(:survey_id) { 42 }
@@ -12,17 +12,21 @@ describe Surveygizmo::Error do
       "filter[value][0]"    => "2012-01-01",
     }
   }
-
+ 
   before do
     stub_get(response_url).with(query: query).
       to_return(:body => fixture("error.json"), :headers => {:content_type => "application/json; charset=utf-8"})
   end
-
+ 
   let(:request) { subject.survey_responses(survey_id, filter: { field: "datesubmitted", operator: ">=", value: "2012-01-01" }) }
-
-  it "throws an Surveygizmo::Error"
-
-  it "has the correct code"
-
-  it "has the correct message" 
+ 
+  it "throws an Surveygizmo::Error" do
+    expect { request }.to raise_error Surveygizmo::Error
+  end
+ 
+  it "has the correct code" 
+ 
+  it "has the correct message" do
+    expect { request }.to raise_error(Surveygizmo::Error) { |e| e.message.should == "Service currently unavailable" }
+  end
 end
