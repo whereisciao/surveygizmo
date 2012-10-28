@@ -1,6 +1,6 @@
 module Faraday
   class Response
-   def ==(other)
+    def ==(other)
       self.body == other.body
     end
   end
