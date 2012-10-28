@@ -31,6 +31,7 @@ module Surveygizmo
           request.body = options unless options.empty?
         end
       end
+      response.body
     end
 
     def convert_hash_filter_params! options

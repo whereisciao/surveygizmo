@@ -1,6 +1,6 @@
 require 'helper'
 
-describe "Surveygizmo::Response" do
+describe Surveygizmo::Response do
   subject { Surveygizmo::Client.new(:username => "maarten@moretea.nl", :password => "keyboardcat") }
   let(:survey_id) { 42 }
   let(:response_url) { "/v2/survey/#{survey_id}/surveyresponse" }
@@ -20,29 +20,42 @@ describe "Surveygizmo::Response" do
 
   let(:response) { subject.survey_responses(survey_id, filter: { field: "datesubmitted", operator: ">=", value: "2012-01-01" }) }
 
+  it{ response.should be_kind_of(Surveygizmo::Response) }
 
   context "#data" do
-    it "is equal to the response object"
+    it "is equal to the response object" do
+      response.data.to_a == response.to_a
+    end
   end
 
   context "#total_count" do
-    it "returns the total number of results"
+    it "returns the total number of results" do
+      response.total_count.should == 42
+    end
   end
 
   context "#page" do
-    it "returns the current page"
+    it "returns the current page" do
+      response.page.should == 1
+    end
   end
 
   context "#total_pages" do
-    it "returns the total number of pages"
+    it "returns the total number of pages" do
+      response.total_pages.should == 2
+    end
   end
 
   context "#results_per_page" do
-    it "returns the number of results per page"
+    it "returns the number of results per page" do
+      response.results_per_page.should == 21
+    end
   end
   
   context "#success?" do
-    it "indicates the status of the response"
+    it "indicates the status of the response" do
+      response.success?.should == true
+    end
   end
   
 end

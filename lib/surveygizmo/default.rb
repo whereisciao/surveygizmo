@@ -1,8 +1,10 @@
 require 'surveygizmo/configurable'
 require 'faraday_middleware'
 require 'surveygizmo/error/server_error'
+require 'surveygizmo/response'
 require 'surveygizmo/response/parse_json'
 require 'surveygizmo/response/raise_error'
+require 'surveygizmo/response/parse_surveygizmo_response'
 require 'surveygizmo/core_ext/response'
 
 module Surveygizmo
@@ -19,6 +21,8 @@ module Surveygizmo
       &Proc.new do |builder|
         # Convert request params to "www-form-urlencoded"
         builder.use Faraday::Request::UrlEncoded
+        # Parse Surveygizmo Response
+        builder.use Surveygizmo::Response::ParseSurveygizmoResponse
         # Handle server responses
         builder.use Surveygizmo::Response::RaiseError, Surveygizmo::Error::ServerError
         # Parse JSON response bodies using MultiJson
