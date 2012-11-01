@@ -21,37 +21,37 @@ describe Surveygizmo::Response do
   let(:response) { subject.survey_responses(survey_id, filter: { field: "datesubmitted", operator: ">=", value: "2012-01-01" }) }
 
 
-  context "#data" do
+  describe "#data" do
     it "is equal to the response object" do
       response.data.to_a == response.to_a
     end
   end
 
-  context "#total_count" do
+  describe "#total_count" do
     it "returns the total number of results" do
       response.total_count.should == 42
     end
   end
 
-  context "#page" do
+  describe "#page" do
     it "returns the current page" do
       response.page.should == 1
     end
   end
 
-  context "#total_pages" do
+  describe "#total_pages" do
     it "returns the total number of pages" do
       response.total_pages.should == 2
     end
   end
 
-  context "#results_per_page" do
+  describe "#results_per_page" do
     it "returns the number of results per page" do
       response.results_per_page.should == 21
     end
   end
 
-  context "#success?" do
+  describe "#success?" do
     it "indicates the status of the response" do
       response.success?.should == true
     end
