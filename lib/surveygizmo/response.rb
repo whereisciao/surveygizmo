@@ -35,14 +35,7 @@ module Surveygizmo
     end
 
     def mashify(body)
-      case body
-      when Hash
-        self.class.mash_class.new(body)
-      when Array
-        body.map { |item| mashify(item) }
-      else
-        body
-      end
+      self.class.mash_class.new(body)
     end
   end
 end
