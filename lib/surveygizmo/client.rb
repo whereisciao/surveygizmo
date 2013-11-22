@@ -15,6 +15,7 @@ module Surveygizmo
     require 'surveygizmo/client/filter'
     require 'surveygizmo/client/survey'
     require 'surveygizmo/client/survey_campaign'
+    require 'surveygizmo/client/survey_campaign_email_message'
     require 'surveygizmo/client/survey_response'
     require 'surveygizmo/client/survey_question'
     require 'surveygizmo/client/survey_statistic'
