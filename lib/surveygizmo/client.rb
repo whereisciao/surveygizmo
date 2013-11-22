@@ -26,6 +26,7 @@ module Surveygizmo
     include Surveygizmo::Client::Filter
     include Surveygizmo::Client::Survey
     include Surveygizmo::Client::SurveyCampaign
+    include Surveygizmo::Client::SurveyCampaignEmailMessage
     include Surveygizmo::Client::SurveyResponse
     include Surveygizmo::Client::SurveyQuestion
     include Surveygizmo::Client::SurveyStatistic
