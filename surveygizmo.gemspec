@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{A Ruby wrapper for the SurveyGizmo REST API}
   s.description = %q{A Ruby wrapper for the SurveyGizmo REST API}
   s.rubyforge_project = 'surveygizmo'
-  
+
   # Development Gems
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rake'
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rb-inotify'
 
   # Gems
-  s.add_dependency 'hashie', '~> 1.1.0'
+  s.add_dependency 'hashie', '> 1.1.0'
   s.add_dependency 'faraday', '~> 0.7.4'
   s.add_dependency 'faraday_middleware', '~> 0.7.0'
 
